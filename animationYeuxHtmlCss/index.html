@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- relier le fichier CSS au html -->
+   <link rel="stylesheet" href="./style.css">
+
+  
+    <title>Animation Css Yeux</title>
+</head>
+<body>
+    <div class = "tete">
+        <div class = "boite">
+            <div class = "oeuil"></div>
+            <div class = "oeuil"></div>
+        </div>
+        <div class="nez"></div>
+        <div class="bouche"></div>
+    </div>
+    <!-- code js -->
+<script>
+    document.querySelector('body').addEventListener('mousemove',bougeLesYeux)
+    function bougeLesYeux(){
+    const oeuil = document.querySelectorAll('.oeuil');
+    oeuil.forEach(function(oeuil){
+        let x = (oeuil.getBoundingClientRect().left) + (oeuil.clientWidth /2);
+        let y = (oeuil.getBoundingClientRect().top) + (oeuil.clientHeight /2);
+        let rad = Math.atan2 (event.pageX - x, event.pageY - y);
+        let rot = (rad * (180 / Math.PI)* -1 ) ;
+        oeuil.style.transform  = "rotate("+rot+"deg)"
+    })
+}
+</script>
+</body>
+
+</html>
